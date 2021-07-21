@@ -1,0 +1,20 @@
+global with sharing class searchAndPick {
+          private final Account person;
+          public searchAndPick(ApexPages.StandardController stdController){
+    this.person= (Account)stdController.getRecord();
+  }
+    
+     public list <Account> ctt {get;set;}
+    public Contact cttt {get;set;}
+    public list <Account> ctct {get;set;}
+    public String searchKey {get;set;}
+     public String modKey {get;set;}
+    public searchAndPick( ) {
+    }
+    public void search(){
+        ctt =[SELECT name, (SELECT LastName, title, phone, Is_Primary_Contact__c from Contacts) from Account Limit 10];
+}
+    public void setPrimary(){
+
+        }
+}
